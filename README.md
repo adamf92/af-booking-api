@@ -1,6 +1,6 @@
 # af-booking-api
 ####Open Source project
-###### Current Version 0.0.1 (Init)
+###### Current Version v0.0.2 (added Calendar generator)
 
 ##### Booking Rest API for small hotels, motels etc.
 Can be used on websites integrated with JavaScript
@@ -11,5 +11,5 @@ Laravel 5.6 \
 MySQL
 
 #### Requirements
-PHP ^7.1.3
+PHP ^7.1.3 \
 MySQL Database
