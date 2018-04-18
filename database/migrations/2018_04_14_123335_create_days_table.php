@@ -20,6 +20,9 @@ class CreateDaysTable extends Migration
             $table->integer('day');
             $table->integer('month');
             $table->integer('year');
+            $table->boolean('start');
+            $table->boolean('end');
+            $table->integer('status');
         });
     }
 

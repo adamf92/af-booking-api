@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Calendar;
+use Illuminate\Http\JsonResponse;
 
 class DayController extends Controller
 {
@@ -12,15 +13,11 @@ class DayController extends Controller
      * Get all reserved days for all rooms in selected month
      * @param integer $year
      * @param integer $month
-     * @return Response
+     * @return JsonResponse
      */
-    public function getAllByMonth(int $year, int $month): Response {
-        // TODO
-        $data = [
-            'room_id' => [
-                'day_id' => [] //day
-            ]
-        ];
+    public function getAllByMonth(int $year, int $month): JsonResponse {
+
+        $data = Calendar::monthCalendar($year, $month);
         
         return response()->json($data, 200);
     }
@@ -31,13 +28,11 @@ class DayController extends Controller
      * Get all reserved days for selected room in selected month
      * @param integer $year
      * @param integer $month
-     * @return Response
+     * @return JsonResponse
      */
-    public function getForRoomByMonth(int $room, int $year, int $month): Response {
-        // TODO
-        $data = [
-            'day_id' => [] //day
-        ];
+    public function getForRoomByMonth(int $room, int $year, int $month): JsonResponse {
+
+        $data = Calendar::roomMonthCalendar($room, $year, $month);
         
         return response()->json($data, 200);
     }

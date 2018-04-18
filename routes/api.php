@@ -3,12 +3,12 @@
 use Illuminate\Http\Request;
 
 /**
- * apiRoute
+ * api
  *
  * Return route with api middleware
  * @return Route
  */
-function apiRoute() {
+function api() {
     return Route::middleware("auth:api");
 }
 
@@ -18,38 +18,39 @@ function apiRoute() {
 |--------------------------------------------------------------------------
 */
 
+
 /*
 -------> DayController routes <-------
 ----> The Calendar actions
 */
-apiRoute()->get('/days/{year}/{month}', 'DayController@getAllByMonth');
-apiRoute()->get('/days/{room}/{year}/{month}', 'DayController@getForRoomByMonth');
+api()->get('/calendar/{year}/{month}', 'DayController@getAllByMonth');
+api()->get('/calendar/rooms/{room}/{year}/{month}', 'DayController@getForRoomByMonth');
 /*
 -------> ReservationController routes <-------
 */
 // Single reservation actions
-apiRoute()->get('/reservations/{reservation}', 'ReservationController@getById');
-apiRoute()->post('/reservations', 'ReservationController@create');
-apiRoute()->put('/reservations/{reservation}', 'ReservationController@update');
-apiRoute()->delete('/reservations/{reservation}', 'ReservationController@delete');
+api()->get('/reservations/{reservation}', 'ReservationController@getById');
+api()->post('/reservations', 'ReservationController@create');
+api()->put('/reservations/{reservation}', 'ReservationController@update');
+api()->delete('/reservations/{reservation}', 'ReservationController@delete');
 // Group actions
-apiRoute()->get('reservations', 'ReservationController@getAll');
+api()->get('reservations', 'ReservationController@getAll');
 /*
 -------> ClientController routes <-------
 */
 // Single client actions
-apiRoute()->get('/clients/{client}', 'ClientController@getById');
-apiRoute()->post('/clients', 'ClientController@create');
-apiRoute()->put('/clients/{client}', 'ClientController@update');
-apiRoute()->delete('/clients/{client}', 'ClientController@delete');
+api()->get('/clients/{client}', 'ClientController@getById');
+api()->post('/clients', 'ClientController@create');
+api()->put('/clients/{client}', 'ClientController@update');
+api()->delete('/clients/{client}', 'ClientController@delete');
 // Group actions
-apiRoute()->get('/clients', 'ClientController@getAll');
+api()->get('/clients', 'ClientController@getAll');
 /*
 -------> PaymentController routes <-------
 */
-apiRoute()->get('/reservations/{reservation}/payments', 'PaymentsController@getPayments');
-apiRoute()->post('/reservations/{reservation}/payments', 'PaymentsController@createPayment');
+api()->get('/reservations/{reservation}/payments', 'PaymentsController@getPayments');
+api()->post('/reservations/{reservation}/payments', 'PaymentsController@createPayment');
 /*
 -------> RoomController routes <-------
 */
-apiRoute()->get('/rooms/{room}', 'RoomController@getRoomReservations');
+api()->get('/rooms/{room}', 'RoomController@getRoomReservations');
