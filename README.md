@@ -1,7 +1,7 @@
 # af-booking-api
-####Open Source project
+#### Open Source project
 ###### Current Version v0.0.2 (added Calendar generator)
-####### NOT WORKING UNTIL v0.1.0
+###### NOT WORKING UNTIL v0.1.0
 
 ##### Booking Rest API for small hotels, motels etc.
 Can be used on websites integrated with JavaScript
